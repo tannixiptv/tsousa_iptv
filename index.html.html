@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSR TANNIX - O Melhor do Streaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Menu Superior Fixo */
+        .top-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 30, 0.95);
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo-menu {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #3498db;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+        }
+        
+        .logo-menu span {
+            color: #fff;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: #3498db;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #3498db;
+            transform: translateY(-3px);
+        }
+        
+        /* Cabeçalho Principal */
+        .main-header {
+            background: rgba(10, 10, 30, 0.8);
+            padding: 120px 0 40px 0;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3498db;
+            text-shadow: 0 0 15px rgba(52, 152, 219, 0.7);
+            margin-bottom: 15px;
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: #eee;
+            margin-bottom: 30px;
+        }
+        
+        /* Seção Hero */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .counters {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .counter {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .counter:hover {
+            transform: translateY(-5px);
+        }
+        
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .counter-text {
+            font-size: 1.2rem;
+        }
+        
+        .contact-info {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 60px 0 30px;
+            color: #3498db;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #3498db;
+            border-radius: 3px;
+        }
+        
+        /* Seção de Planos */
+        .plans {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .plan {
+            background: rgba(30, 30, 50, 0.8);
+            border-radius: 10px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .plan-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .plan-features li::before {
+            content: '✓';
+            color: #3498db;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .server-badge {
+            text-align: center;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 600px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .server-badge h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Seção de Conteúdo */
+        .content-showcase {
+            padding: 60px 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .content-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .content-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .content-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 20px;
+            color: white;
+        }
+        
+        .content-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .content-category {
+            color: #3498db;
+            font-size: 0.9rem;
+        }
+        
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .channel-item {
+            background: rgba(30, 30, 50, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .channel-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .channel-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        .channel-name {
+            font-size: 1.1rem;
+        }
+        
+        /* Seção de Aplicativos */
+        .apps-section {
+            padding: 60px 0;
+            background: rgba(10, 10, 30, 0.5);
+        }
+        
+        .app-card {
+            background: rgba(30, 30, 50, 0.8);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .app-card h3 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .app-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .app-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .app-details p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .app-code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            display: inline-block;
+            margin: 5px 0;
+            font-size: 1.1rem;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .app-link {
+            display: inline-block;
+            margin: 10px 0;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .app-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .partner-logo {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 180px;
+            transition: transform 0.3s;
+        }
+        
+        .partner-logo:hover {
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background: rgba(10, 10, 30, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: #3498db;
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #fff;
+            transform: translateY(-5px);
+        }
+        
+        /* Menu responsivo */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background: #fff;
+            margin-bottom: 5px;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        @media (max-width: 968px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 30, 0.95);
+                padding: 20px;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .social-icons {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .counters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .counter {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .plans {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .plan {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .channels-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+            
+            .app-info {
+                flex-direction: column;
+            }
+            
+            .top-menu {
+                padding: 15px 20px;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Superior Fixo -->
+    <div class="top-menu">
+        <div class="logo-menu">JSR <span>TANNIX</span></div>
+        
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <a href="#inicio">Início</a>
+            <a href="#planos">Planos</a>
+            <a href="#vantagens">Vantagens</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        
+        <div class="social-icons">
+            <a href="https://wa.me/5571988250986" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/jsrtannix23" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@jsrtannix107" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    
+    <!-- Cabeçalho Principal -->
+    <header class="main-header" id="inicio">
+        <div class="container">
+            <div class="logo">JSR <span>TANNIX</span></div>
+            <div class="tagline">O Melhor do Streaming Está Aqui</div>
+        </div>
+    </header>
+    
+    <!-- Seção Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Mais de 2000 Canais e 150.000 Conteúdos</h1>
+            <p>A melhor experiência em streaming com qualidade e estabilidade</p>
+            
+            <div class="counters">
+                <div class="counter">
+                    <div class="counter-number">2000+</div>
+                    <div class="counter-text">Canais</div>
+                </div>
+                <div class="counter">
+                    <div class="counter-number">150k+</div>
+                    <div class="counter-text">Conteúdos</div>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <a href="https://wa.me/5571988250986" target="_blank">
+                    <i class="fab fa-whatsapp"></i> (71) 98825-0986
+                </a>
+                <a href="https://instagram.com/jsrtannix23" target="_blank">
+                    <i class="fab fa-instagram"></i> @jsrtannix23
+                </a>
+                <a href="https://youtube.com/@jsrtannix107" target="_blank">
+                    <i class="fab fa-youtube"></i> @jsrtannix107
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de parceiros -->
+    <section class="content-showcase">
+        <div class="container">
+            <h2 class="section-title">Aproveite o Melhor Conteúdo</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Com nossos apps parceiros exclusivos</p>
+            
+            <div class="partner-logos">
+                <div class="partner-logo">
+                    <h3>PRIME IPTV</h3>
+                </div>
+                <div class="partner-logo">
+                    <h3>LAZER PLAY</h3>
+                </div>
+                <div class="partner-logo">
+                    <h3>Prime</h3>
+                </div>
+                <div class="partner-logo">
+                    <h3>LISTS</h3>
+                </div>
+                <div class="partner-logo">
+                    <h3>UNIPLAY</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de conteúdo em destaque -->
+    <section class="content-showcase">
+        <div class="container">
+            <h2 class="section-title">Conteúdo em Destaque</h2>
+            <div class="content-grid">
+                <div class="content-item">
+                    <img src="https://images.unsplash.com/photo-1673579977502-48e17a492f9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Superman">
+                    <div class="content-overlay">
+                        <h3 class="content-title">Superman</h3>
+                        <p class="content-category">Filme • Ação</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <img src="https://images.unsplash.com/photo-1662581872341-6494ed5f40ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wandinha">
+                    <div class="content-overlay">
+                        <h3 class="content-title">Wandinha</h3>
+                        <p class="content-category">Série • Terror</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ozark">
+                    <div class="content-overlay">
+                        <h3 class="content-title">Ozark</h3>
+                        <p class="content-category">Série • Drama</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="ESPN">
+                    <div class="content-overlay">
+                        <h3 class="content-title">ESPN</h3>
+                        <p class="content-category">Canal • Esportes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de canais -->
+    <section class="content-showcase">
+        <div class="container">
+            <h2 class="section-title">Canais Populares</h2>
+            <div class="channels-grid">
+                <div class="channel-item">
+                    <div class="channel-icon"><i class="fas fa-tv"></i></div>
+                    <h3 class="channel-name">Premiere</h3>
+                </div>
+                
+                <div class="channel-item">
+                    <div class="channel-icon"><i class="fas fa-basketball-ball"></i></div>
+                    <h3 class="channel-name">ESPN</h3>
+                </div>
+                
+                <div class="channel-item">
+                    <div class="channel-icon"><i class="fas fa-futbol"></i></div>
+                    <h3 class="channel-name">Sportv</h3>
+                </div>
+                
+                <div class="channel-item">
+                    <div class="channel-icon"><i class="fas fa-fist-raised"></i></div>
+                    <h3 class="channel-name">Combate</h3>
+                </div>
+                
+                <div class="channel-item">
+                    <div class="channel-icon"><i class="fas fa-apple-alt"></i></div>
+                    <h3 class="channel-name">Apple TV+</h3>
+                </div>
+                
+                <div class="channel-item">
+                    <div class="channel-icon"><i class="fas fa-film"></i></div>
+                    <h3 class="channel-name">HBO Max</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de Planos de Assinatura -->
+    <section class="container" id="planos">
+        <h2 class="section-title">Planos de Assinatura</h2>
+        <div class="plans">
+            <div class="plan">
+                <h3 class="plan-name">Mensal</h3>
+                <div class="plan-price">R$ 35,00</div>
+                <ul class="plan-features">
+                    <li>Acesso a todos os canais</li>
+                    <li>Qualidade Full HD/4K</li>
+                    <li>Suporte 24/7</li>
+                    <li>Multi-dispositivos</li>
+                </ul>
+                <a href="https://wa.me/5571988250986?text=Quero assinar o plano Mensal" class="btn">Assinar Agora</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">Bimestral</h3>
+                <div class="plan-price">R$ 60,00</div>
+                <ul class="plan-features">
+                    <li>Acesso a todos os canais</li>
+                    <li>Qualidade Full HD/4K</li>
+                    <li>Suporte 24/7</li>
+                    <li>Multi-dispositivos</li>
+                </ul>
+                <a href="https://wa.me/5571988250986?text=Quero assinar o plano Bimestral" class="btn">Assinar Agora</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">Trimestral</h3>
+                <div class="plan-price">R$ 85,00</div>
+                <ul class="plan-features">
+                    <li>Acesso a todos os canais</li>
+                    <li>Qualidade Full HD/4K</li>
+                    <li>Suporte 24/7</li>
+                    <li>Multi-dispositivos</li>
+                </ul>
+                <a href="https://wa.me/5571988250986?text=Quero assinar o plano Trimestral" class="btn">Assinar Agora</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">Semestral</h3>
+                <div class="plan-price">R$ 150,00</div>
+                <ul class="plan-features">
+                    <li>Acesso a todos os canais</li>
+                    <li>Qualidade Full HD/4K</li>
+                    <li>Suporte 24/7</li>
+                    <li>Multi-dispositivos</li>
+                </ul>
+                <a href="https://wa.me/5571988250986?text=Quero assinar o plano Semestral" class="btn">Assinar Agora</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">Anual</h3>
+                <div class="plan-price">R$ 280,00</div>
+                <ul class="plan-features">
+                    <li>Acesso a todos os canais</li>
+                    <li>Qualidade Full HD/4K</li>
+                    <li>Suporte 24/7</li>
+                    <li>Multi-dispositivos</li>
+                </ul>
+                <a href="https://wa.me/5571988250986?text=Quero assinar o plano Anual" class="btn">Assinar Agora</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de Vantagens -->
+    <section class="content-showcase" id="vantagens">
+        <div class="container">
+            <h2 class="section-title">Vantagens Exclusivas</h2>
+            <div class="content-grid">
+                <div class="content-item">
+                    <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Qualidade de Imagem">
+                    <div class="content-overlay">
+                        <h3 class="content-title">Qualidade Full HD/4K</h3>
+                        <p class="content-category">Imagem de altíssima qualidade</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <img src="https://images.unsplash.com/photo-1495465798138-718f86d1a4f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Multiplataforma">
+                    <div class="content-overlay">
+                        <h3 class="content-title">Multiplataforma</h3>
+                        <p class="content-category">Assista em qualquer dispositivo</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Conteúdo Exclusivo">
+                    <div class="content-overlay">
+                        <h3 class="content-title">Conteúdo Exclusivo</h3>
+                        <p class="content-category">Filmes, séries e canais premium</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Suporte 24/7">
+                    <div class="content-overlay">
+                        <h3 class="content-title">Suporte 24/7</h3>
+                        <p class="content-category">Atendimento sempre disponível</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de Planos de Revenda -->
+    <section class="container">
+        <h2 class="section-title">Planos de Revenda</h2>
+        <div class="plans">
+            <div class="plan">
+                <h3 class="plan-name">10 Créditos</h3>
+                <div class="plan-price">R$ 110,00</div>
+                <a href="https://wa.me/5571988250986?text=Quero comprar o plano de 10 créditos para revenda" class="btn">Comprar</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">20 Créditos</h3>
+                <div class="plan-price">R$ 200,00</div>
+                <a href="https://wa.me/5571988250986?text=Quero comprar o plano de 20 créditos para revenda" class="btn">Comprar</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">30 Créditos</h3>
+                <div class="plan-price">R$ 285,00</div>
+                <a href="https://wa.me/5571988250986?text=Quero comprar o plano de 30 créditos para revenda" class="btn">Comprar</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">40 Créditos</h3>
+                <div class="plan-price">R$ 360,00</div>
+                <a href="https://wa.me/5571988250986?text=Quero comprar o plano de 40 créditos para revenda" class="btn">Comprar</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">50 Créditos</h3>
+                <div class="plan-price">R$ 425,00</div>
+                <a href="https://wa.me/5571988250986?text=Quero comprar o plano de 50 créditos para revenda" class="btn">Comprar</a>
+            </div>
+            
+            <div class="plan">
+                <h3 class="plan-name">100 Créditos</h3>
+                <div class="plan-price">R$ 700,00</div>
+                <a href="https://wa.me/5571988250986?text=Quero comprar o plano de 100 créditos para revenda" class="btn">Comprar</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Badge do Servidor -->
+    <div class="container">
+        <div class="server-badge">
+            <h2>#Uniplay - O Melhor Servidor do Mercado</h2>
+            <p>Estabilidade e qualidade incomparáveis para sua experiência de streaming</p>
+        </div>
+    </div>
+    
+    <!-- Seção de Aplicativos -->
+    <section class="apps-section">
+        <div class="container">
+            <h2 class="section-title">Nossos Aplicativos Exclusivos</h2>
+            
+            <div class="app-card">
+                <h3>JSR IBO - App Fixo para Android</h3>
+                <p>Nosso aplicativo principal desenvolvido especialmente para TVs Android, TV Box e Celulares. Interface intuitiva e de fácil navegação para toda a família.</p>
+                
+                <div class="app-info">
+                    <div class="app-details">
+                        <p><strong>Características principais:</strong></p>
+                        <ul class="feature-list">
+                            <li>Compatível com Android TV, TV Box e smartphones Android</li>
+                            <li>Navegação simplificada por categorias</li>
+                            <li>Design responsivo e adaptável a diferentes telas</li>
+                            <li>Suporte a múltiplos usuários com favoritos individuais</li>
+                            <li>Atualizações automáticas de conteúdo</li>
+                        </ul>
+                        
+                        <p><strong>Código downloader:</strong> <span class="app-code">5001707</span></p>
+                        <p><strong>Link direto para download:</strong> <a href="https://aftv.news/50017" class="app-link" target="_blank">aftv.news/50017</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="app-card">
+                <h3>JSR TANNIX - Novo Aplicativo com Sistema Netflix</h3>
+                <p>Nosso aplicativo premium com interface inspirada na Netflix, oferecendo a melhor experiência de streaming para filmes e séries.</p>
+                <p><strong>Compatibilidade:</strong> Funciona apenas em TV Box, My Stick e TV Android (versão 5.0 ou superior).</p>
+                
+                <div class="app-info">
+                    <div class="app-details">
+                        <p><strong>Recursos exclusivos:</strong></p>
+                        <ul class="feature-list">
+                            <li>Interface moderna inspirada no sistema Netflix</li>
+                            <li>Recomendações personalizadas baseadas no seu histórico</li>
+                            <li>Continue assistindo de onde parou</li>
+                            <li>Listas de favoritos e watchlist</li>
+                            <li>Busca inteligente por título, ator ou gênero</li>
+                            <li>Qualidade de vídeo adaptativa (até 4K)</li>
+                        </ul>
+                        
+                        <p><strong>Download direto:</strong> <a href="https://aftv.news/1471519" class="app-link" target="_blank">https://aftv.news/1471519</a></p>
+                        <p><strong>Código downloader:</strong> <span class="app-code">1471519</span></p>
+                        
+                        <p><strong>Nota:</strong> Para melhor experiência, recomendamos usar este aplicativo em dispositivos com pelo menos 2GB de RAM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rodapé -->
+    <footer id="contato">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://wa.me/5571988250986" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="极
+                <a href="https://youtube.com/@jsrtannix107" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>JSR TANNIX - O Melhor do Streaming Está Aqui</p>
+            <p>&copy; 2023 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        // Adicionar margem ao conteúdo principal para compensar o menu fixo
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerHeight = document.querySelector('.top-menu').offsetHeight;
+            document.querySelector('.main-header').style.marginTop = headerHeight + 'px';
+        });
+    </script>
+</body>
+</html>
