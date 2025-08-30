@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSR TANNIX - IPTV Premium</title>
+    <title>TIAGO SOUSA - IPTV Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -248,6 +248,83 @@
             color: var(--gray);
         }
         
+        /* Apps Section */
+        .apps {
+            padding: 60px 0;
+            background: #1e293b;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .apps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .app-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 550px;
+            transition: all 0.3s;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 126, 95, 0.2);
+        }
+        
+        .app-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .app-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .app-card ul li {
+            margin-bottom: 10px;
+            color: var(--gray);
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .app-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .download-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .download-info p {
+            margin-bottom: 10px;
+        }
+        
+        .download-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
         /* Contact */
         .contact {
             padding: 60px 0;
@@ -407,7 +484,7 @@
                 font-size: 2rem;
             }
             
-            .feature, .plan, .contact-method {
+            .feature, .plan, .contact-method, .app-card {
                 width: 100%;
                 max-width: 350px;
             }
@@ -424,14 +501,15 @@
                         <i class="fas fa-tv"></i>
                     </div>
                     <div class="logo-text">
-                        <div class="logo-name">JSR TANNIX</div>
-                        <div class="logo-subtitle">IPTV PREMIUM</div>
+                        <div class="logo-name">TIAGO IPTV</div>
+                        <div class="logo-subtitle">SERVIDOR UNIPLAY</div>
                     </div>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="#home">Início</a></li>
                         <li><a href="#plans">Planos</a></li>
+                        <li><a href="#apps">Aplicativos</a></li>
                         <li><a href="#features">Vantagens</a></li>
                         <li><a href="#contact">Contato</a></li>
                     </ul>
@@ -485,7 +563,7 @@
                         <li>Suporte 24/7</li>
                         <li>Qualidade HD/4K</li>
                     </ul>
-                    <a href="https://wa.me/5571988250986?text=Quero%20assinar%20o%20plano%20Mensal" class="btn" target="_blank">Assinar Agora</a>
+                    <a href="https://wa.me/5544988600494?text=Quero%20assinar%20o%20plano%20Mensal" class="btn" target="_blank">Assinar Agora</a>
                 </div>
                 
                 <div class="plan">
@@ -498,7 +576,7 @@
                         <li>Suporte 24/7</li>
                         <li>Qualidade HD/4K</li>
                     </ul>
-                    <a href="https://wa.me/5571988250986?text=Quero%20assinar%20o%20plano%20Bimestral" class="btn" target="_blank">Assinar Agora</a>
+                    <a href="https://wa.me/5544988600494?text=Quero%20assinar%20o%20plano%20Bimestral" class="btn" target="_blank">Assinar Agora</a>
                 </div>
                 
                 <div class="plan">
@@ -511,7 +589,7 @@
                         <li>Suporte 24/7</li>
                         <li>Qualidade HD/4K</li>
                     </ul>
-                    <a href="https://wa.me/5571988250986?text=Quero%20assinar%20o%20plano%20Trimestral" class="btn" target="_blank">Assinar Agora</a>
+                    <a href="https://wa.me/5544988600494?text=Quero%20assinar%20o%20plano%20Trimestral" class="btn" target="_blank">Assinar Agora</a>
                 </div>
                 
                 <div class="plan">
@@ -524,7 +602,7 @@
                         <li>Suporte 24/7</li>
                         <li>Qualidade HD/4K</li>
                     </ul>
-                    <a href="https://wa.me/5571988250986?text=Quero%20assinar%20o%20plano%20Semestral" class="btn" target="_blank">Assinar Agora</a>
+                    <a href="https://wa.me/5544988600494?text=Quero%20assinar%20o%20plano%20Semestral" class="btn" target="_blank">Assinar Agora</a>
                 </div>
                 
                 <div class="plan">
@@ -537,7 +615,56 @@
                         <li>Suporte 24/7</li>
                         <li>Qualidade HD/4K</li>
                     </ul>
-                    <a href="https://wa.me/5571988250986?text=Quero%20assinar%20o%20plano%20Anual" class="btn" target="_blank">Assinar Agora</a>
+                    <a href="https://wa.me/5544988600494?text=Quero%20assinar%20o%20plano%20Anual" class="btn" target="_blank">Assinar Agora</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apps Section -->
+        <section class="apps" id="apps">
+            <h2 class="section-title">Nossos Aplicativos Exclusivos</h2>
+            
+            <div class="apps-container">
+                <div class="app-card">
+                    <h3>Uniplay - O Melhor Servidor do Mercado</h3>
+                    <p>Estabilidade e qualidade incomparáveis para sua experiência de streaming</p>
+                </div>
+                
+                <div class="app-card">
+                    <h3>JSR IBO - App Fixo para Android</h3>
+                    <p>Nosso aplicativo principal desenvolvido especialmente para TVs Android, TV Box e Celulares.</p>
+                    <ul>
+                        <li>Compatível com Android TV, TV Box e smartphones Android</li>
+                        <li>Navegação simplificada por categorias</li>
+                        <li>Design responsivo e adaptável a diferentes telas</li>
+                        <li>Suporte a múltiplos usuários com favoritos individuais</li>
+                        <li>Atualizações automáticas de conteúdo</li>
+                    </ul>
+                    <div class="download-info">
+                        <p><strong>Código downloader:</strong> 5001707</p>
+                        <p><strong>Link direto:</strong> aftv.news/50017</p>
+                        <a href="https://aftv.news/50017" class="download-link" target="_blank">Baixar Aplicativo</a>
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <h3>JSR TANNIX - Novo Aplicativo com Sistema Netflix</h3>
+                    <p>Nosso aplicativo premium com interface inspirada na Netflix, oferecendo a melhor experiência de streaming para filmes e séries.</p>
+                    <ul>
+                        <li>Interface moderna inspirada no sistema Netflix</li>
+                        <li>Recomendações personalizadas baseadas no seu histórico</li>
+                        <li>Continue assistindo de onde parou</li>
+                        <li>Listas de favoritos e watchlist</li>
+                        <li>Busca inteligente por título, ator ou gênero</li>
+                        <li>Qualidade de vídeo adaptativa (até 4K)</li>
+                    </ul>
+                    <div class="download-info">
+                        <p><strong>Compatibilidade:</strong> Funciona apenas em TV Box, My Stick e TV Android (versão 5.0 ou superior)</p>
+                        <p><strong>Código downloader:</strong> 1471519</p>
+                        <p><strong>Link direto:</strong> https://aftv.news/1471519</p>
+                        <a href="https://aftv.news/1471519" class="download-link" target="_blank">Baixar Aplicativo</a>
+                    </div>
+                    <p><strong>Nota:</strong> Para melhor experiência, recomendamos usar este aplicativo em dispositivos com pelo menos 6GB de RAM.</p>
                 </div>
             </div>
         </section>
@@ -547,7 +674,7 @@
             <h2 class="section-title">Entre em Contato</h2>
             <p>Estamos prontos para tirar suas dúvidas e oferecer o melhor serviço de IPTV</p>
             
-            <a href="https://wa.me/5571988250986" class="whatsapp-btn" target="_blank">
+            <a href="https://wa.me/5544988600494" class="whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
             </a>
             
@@ -555,7 +682,7 @@
                 <div class="contact-method">
                     <i class="fab fa-whatsapp"></i>
                     <h3>WhatsApp</h3>
-                    <p>(71) 98825-0986</p>
+                    <p>(44) 98860-0494</p>
                 </div>
                 
                 <div class="contact-method">
@@ -578,10 +705,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>JSR TANNIX</h3>
+                    <h3>TIAGO IPTV</h3>
                     <p>A melhor experiência em IPTV com milhares de canais, filmes e séries para você assistir quando e onde quiser.</p>
                     <div class="social-icons">
-                        <a href="https://wa.me/5571988250986" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/5544988600494" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://instagram.com/jsrtannix23" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://youtube.com/@jsrtannix107" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
@@ -592,6 +719,7 @@
                     <ul>
                         <li><a href="#home">Início</a></li>
                         <li><a href="#plans">Planos</a></li>
+                        <li><a href="#apps">Aplicativos</a></li>
                         <li><a href="#features">Vantagens</a></li>
                         <li><a href="#contact">Contato</a></li>
                     </ul>
@@ -600,7 +728,7 @@
                 <div class="footer-section">
                     <h3>Contato</h3>
                     <ul>
-                        <li><i class="fab fa-whatsapp"></i> (71) 98825-0986</li>
+                        <li><i class="fab fa-whatsapp"></i> (44) 98860-0494</li>
                         <li><i class="fab fa-instagram"></i> @jsrtannix23</li>
                         <li><i class="fab fa-youtube"></i> @jsrtannix107</li>
                     </ul>
@@ -608,7 +736,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2023 JSR TANNIX IPTV - Todos os direitos reservados.</p>
+                <p>&copy; 2023 TIAGO IPTV - Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -631,6 +759,7 @@
         
         // Simple animation for features
         const features = document.querySelectorAll('.feature');
+        const appCards = document.querySelectorAll('.app-card');
         
         function checkScroll() {
             features.forEach(feature => {
@@ -642,6 +771,16 @@
                     feature.style.transform = 'translateY(0)';
                 }
             });
+            
+            appCards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }
+            });
         }
         
         // Set initial state for animation
@@ -649,6 +788,12 @@
             feature.style.opacity = 0;
             feature.style.transform = 'translateY(50px)';
             feature.style.transition = 'all 0.5s ease';
+        });
+        
+        appCards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.5s ease';
         });
         
         window.addEventListener('scroll', checkScroll);
